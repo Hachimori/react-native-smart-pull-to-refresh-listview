@@ -650,7 +650,7 @@ class PullToRefreshListView extends Component {
             })
             this._headerHeight = pullDownStayDistance
 
-            this._scrollView.scrollTo({ y: this._refreshFixScrollY, animated: false, })
+            this._scrollView.scrollTo({ y: this._refreshFixScrollY, animated: true, })
             this._refreshBackAnimationFrame = this.requestAnimationFrame(this._resetRefreshScrollTop)
             this._refreshState = refreshing
             this._header.setState({
