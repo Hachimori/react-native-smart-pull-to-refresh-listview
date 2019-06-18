@@ -683,7 +683,7 @@ class PullToRefreshListView extends Component {
     _resetRefreshScrollTop = (timestamp) => {
         if (!this._beginResetScrollTopTimeStamp) {
             this._beginResetScrollTopTimeStamp = timestamp
-            this._scrollView.scrollTo({ y: this._refreshFixScrollY, animated: true, })
+            this._scrollView.scrollTo({ y: this._refreshFixScrollY, animated: false, })
         }
         else {
             let percent = (timestamp - this._beginResetScrollTopTimeStamp) / scrollBounceAnimationDuration
@@ -692,7 +692,7 @@ class PullToRefreshListView extends Component {
             if (resetScrollTop < 0) {
                 resetScrollTop = 0
             }
-            this._scrollView.scrollTo({ y: -resetScrollTop, animated: true, })
+            this._scrollView.scrollTo({ y: -resetScrollTop, animated: false, })
             if (timestamp - this._beginResetScrollTopTimeStamp > scrollBounceAnimationDuration) {
                 this._refreshBackAnimationFrame = null
                 this._beginResetScrollTopTimeStamp = null
@@ -799,7 +799,7 @@ class PullToRefreshListView extends Component {
 
             //console.log(`this._fixedScrollY = ${this._fixedScrollY}, this._scrollY = ${this._scrollY}`)
             if (this._fixedScrollY > 0) {
-                this._scrollView.scrollTo({ y: 0, animated: false, })
+                this._scrollView.scrollTo({ y: 0, animated: true, })
             }
             this._beginTimeStamp = null
             this._refreshBackAnimating = false
